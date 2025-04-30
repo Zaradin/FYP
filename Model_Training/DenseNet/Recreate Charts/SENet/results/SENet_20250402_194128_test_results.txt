@@ -1,0 +1,17 @@
+Model: SENet_20250402_194128 Cross-validation completed in 5885.00 seconds 72-72-72
+
+BEST MODEL RESULTS:
+Best Fold: 4
+Best Epoch: N/A
+Test Accuracy: 0.8333
+Test Precision: 0.8113
+Test Recall: 0.7544
+Test F1 Score: 0.7818
+Test ROC AUC: 0.9042
+
+AVERAGE RESULTS ACROSS ALL FOLDS:
+Average Test Accuracy: 0.8264
+Average Test Precision: 0.8762
+Average Test Recall: 0.6596
+Average Test F1 Score: 0.7471
+Average Test ROC AUC: 0.9001

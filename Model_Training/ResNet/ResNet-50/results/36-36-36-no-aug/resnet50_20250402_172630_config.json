@@ -1,0 +1,24 @@
+{
+    "seed": 42,
+    "n_folds": 5,
+    "batch_size": 4,
+    "num_workers": 8,
+    "num_epochs": 20,
+    "learning_rate": 0.0001,
+    "resize_d": [
+        36,
+        36,
+        36
+    ],
+    "train_dir": "../data/train",
+    "test_dir": "../data/test",
+    "class_names": [
+        "CN",
+        "AD"
+    ],
+    "model_save_dir": "models",
+    "results_dir": "results",
+    "graphs_dir": "graphs",
+    "experiment_timestamp": "20250402_172630",
+    "run_name": "resnet50_20250402_172630"
+}

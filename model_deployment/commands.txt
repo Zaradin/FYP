@@ -1,0 +1,65 @@
+# Create a torchserve .mar
+#torch-model-archiver --model-name densenet201v2 --version 1.0 --model-file dummy_model.py --serialized-file densenet201_model_72.pth --handler DenseNet201_handle.py --export-path model_store --force
+
+torch-model-archiver --model-name densenet201v2 --version 1.0 --model-file dummy_model.py --serialized-file model.pth --handler DenseNet201_handle.py --export-path model_store --force
+
+
+# Build docker image
+docker build -t densenetv2 .
+
+# Tag the docker image for AWS ECR
+docker tag densenetv2:latest 091955317001.dkr.ecr.eu-west-1.amazonaws.com/models:densenetv2
+
+#login to aws 
+aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 091955317001.dkr.ecr.eu-west-1.amazonaws.com
+
+# Push the image to AWS ECR
+docker push 091955317001.dkr.ecr.eu-west-1.amazonaws.com/models:densenetv2
+
+## EC2 Instance
+ssh -i newer.pem ec2-user@34.251.87.226
+
+# Install Docker on EC2
+sudo yum update -y
+sudo yum install -y docker
+sudo service docker start
+
+# auth AWS
+aws configure
+
+# Login to ECR on your EC2 instance
+aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 091955317001.dkr.ecr.eu-west-1.amazonaws.com
+
+# Add current user to the docker group
+sudo usermod -aG docker $USER
+
+# Apply the group changes to current terminal session
+newgrp docker
+
+# Pull the image
+docker pull 091955317001.dkr.ecr.eu-west-1.amazonaws.com/models:densenetv2
+
+# Run it
+docker run -d -p 8080:8080 -p 8081:8081 -p 8082:8082 091955317001.dkr.ecr.eu-west-1.amazonaws.com/models:densenetv2
+
+
+
+
+# Getting logs from docker container and viewing in nano on EC2
+docker ps
+
+# get main torchserve logs file
+docker cp cfb32d377838:/home/model-server/logs/ts_log.log ~/
+nano ts_log.log
+
+# Stop all containers
+docker stop $(docker ps -a -q)
+
+# Log onto container
+docker exec -it 1f52d41ea797 /bin/bash
+
+# remove all containers
+docker rmi -f $(docker images -aq)
+
+
+docker logs cfb32d377838

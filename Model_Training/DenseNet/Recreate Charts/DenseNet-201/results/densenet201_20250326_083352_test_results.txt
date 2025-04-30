@@ -1,0 +1,17 @@
+Model: densenet201_20250326_083352
+
+BEST MODEL RESULTS:
+Best Fold: 4
+Best Epoch: N/A
+Test Accuracy: 0.8472
+Test Precision: 0.8431
+Test Recall: 0.7544
+Test F1 Score: 0.7963
+Test ROC AUC: 0.9076
+
+AVERAGE RESULTS ACROSS ALL FOLDS:
+Average Test Accuracy: 0.8222
+Average Test Precision: 0.8086
+Average Test Recall: 0.7228
+Average Test F1 Score: 0.7628
+Average Test ROC AUC: 0.8861

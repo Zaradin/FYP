@@ -1,0 +1,17 @@
+Model: resnet50_20250402_172630 Cross-validation completed in 5348.12 seconds 36-36-36
+
+BEST MODEL RESULTS:
+Best Fold: 4
+Best Epoch: N/A
+Test Accuracy: 0.7708
+Test Precision: 0.8333
+Test Recall: 0.5263
+Test F1 Score: 0.6452
+Test ROC AUC: 0.8179
+
+AVERAGE RESULTS ACROSS ALL FOLDS:
+Average Test Accuracy: 0.7264
+Average Test Precision: 0.7147
+Average Test Recall: 0.5544
+Average Test F1 Score: 0.6136
+Average Test ROC AUC: 0.7844

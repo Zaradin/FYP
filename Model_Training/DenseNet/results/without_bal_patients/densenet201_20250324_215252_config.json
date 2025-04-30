@@ -1,0 +1,34 @@
+{
+    "seed": 42,
+    "n_folds": 5,
+    "batch_size": 8,
+    "num_workers": 8,
+    "num_epochs": 20,
+    "learning_rate": 0.0001,
+    "roi_size": [
+        36,
+        36,
+        36
+    ],
+    "resize_d": [
+        72,
+        72,
+        72
+    ],
+    "target_size": [
+        36,
+        36,
+        36
+    ],
+    "train_dir": "data/train",
+    "test_dir": "data/test",
+    "class_names": [
+        "CN",
+        "AD"
+    ],
+    "model_save_dir": "models",
+    "results_dir": "results",
+    "graphs_dir": "graphs",
+    "experiment_timestamp": "20250324_215252",
+    "run_name": "densenet201_20250324_215252"
+}
